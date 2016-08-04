@@ -89,6 +89,8 @@ class Item implements ItemIds{
 			self::$list[self::RABBIT_STEW] = RabbitStew::class;
 			self::$list[self::BEETROOT_SOUP] = BeetrootSoup::class;
 			self::$list[self::CARROT] = Carrot::class;
+		    self::$list[self::FILLED_MAP] = FILLED_MAP::class;
+			self::$list[self::EMPTY_MAP] = EmptyMap::class;
 			self::$list[self::POTATO] = Potato::class;
 			self::$list[self::BEETROOT_SEEDS] = BeetrootSeeds::class;
 			self::$list[self::SIGN] = Sign::class;
