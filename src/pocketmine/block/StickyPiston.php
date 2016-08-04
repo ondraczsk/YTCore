@@ -28,8 +28,8 @@ class StickyPiston extends Solid implements RedstoneConsumer{
 		return "Sticky Piston";
 	}
 
-	public function canBeActivated(){
-		return true;
+	public function canBeActivated() : bool{
+		return false;
 	}
 
 	public function getHardness(){
