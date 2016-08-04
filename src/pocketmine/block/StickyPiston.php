@@ -24,7 +24,7 @@ class StickyPiston extends Solid implements RedstoneConsumer{
 		$this->meta = $meta;
 	}
 
-	public function getName(){
+    public function getName() : string{
 		return "Sticky Piston";
 	}
 
