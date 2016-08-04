@@ -1,34 +1,38 @@
 <?php
-
 /**
  * OpenGenisys Project
  * @author happy163
 */
-
 namespace pocketmine\block;
-
 use pocketmine\item\Item;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
-
 class Rail extends Flowable{
-
+	
+	const STRAIGHT_EAST_WEST = 0; 
+	const STRAIGHT_NORTH_SOUTH = 1; 
+	const SLOPED_ASCENDING_NORTH = 2;
+	const SLOPED_ASCENDING_SOUTH = 3;
+	const SLOPED_ASCENDING_EAST = 4;  
+	const SLOPED_ASCENDING_WEST = 5;
+	const CURVED_NORTH_WEST = 7; 
+	const CURVED_SOUTH_WEST = 6; 
+	const CURVED_SOUTH_EAST = 9;
+	const CURVED_NORTH_EAST = 8;
+	
+	
 	protected $id = self::RAIL;
 	/** @var Vector3 [] */
 	protected $connected = [];
-
 	public function __construct($meta = 0){
 		$this->meta = $meta;
 	}
-
 	public function getName() : string{
 		return "Rail";
 	}
-
 	protected function update(){
 		return true;
 	}
-
 	/**
 	 * @param Rail $block
 	 * @return bool
@@ -43,16 +47,13 @@ class Rail extends Flowable{
 		}
 		return $blocks;
 	}
-
 	public function isBlock(Block $block){
 		if($block instanceof AIR){
 			return false;
 		}
 		return $block;
 	}
-
 	public function connect(Rail $rail, $force = false){
-
 		if(!$force){
 			$connected = $this->canConnect($rail);
 			if(!is_array($connected)){
@@ -87,17 +88,13 @@ class Rail extends Flowable{
 		$this->level->setBlock($this, Block::get($this->id, $this->meta), true, true);
 		return true;
 	}
-
 	public function place(Item $item, Block $block, Block $target, $face, $fx, $fy, $fz, Player $player = null){
 		$downBlock = $this->getSide(Vector3::SIDE_DOWN);
-
 		if($downBlock instanceof Rail or !$this->isBlock($downBlock)){//判断是否可以放置
 			return false;
 		}
-
 		$arrayXZ = [[1, 0], [0, 1], [-1, 0], [0, -1]];
 		$arrayY = [0, 1, -1];
-
 		/** @var Vector3 [] $connected */
 		$connected = [];
 		foreach($arrayXZ as $xz){
@@ -143,7 +140,6 @@ class Rail extends Flowable{
 		$this->level->setBlock($this, Block::get($this->id, $this->meta), true, true);
 		return true;
 	}
-
 	/**
 	 * @param Rail $rail
 	 * @return array
@@ -184,15 +180,12 @@ class Rail extends Flowable{
 		}
 		return $connected;
 	}
-
 	public function getHardness() {
 		return 0.7;
 	}
-
 	public function getResistance(){
 		return 3.5;
 	}
-
 	public function canPassThrough(){
 		return true;
 	}
