@@ -301,7 +301,6 @@ class Block extends Position implements BlockIds, Metadatable{
 			self::$list[self::ITEM_FRAME_BLOCK] = ItemFrame::class;
 			self::$list[self::DISPENSER] = Dispenser::class;
 			self::$list[self::DROPPER] = Dropper::class;
-			self::$list[self::STICKY_PISTON] = StickyPiston::class;
 			self::$list[self::PISTON] = Piston::class;
 			//self::$list[self::PISTON_HEAD] = PistonHead::class;
 			//self::$list[self::PISTON_EXTENSION] = PistonExtension::class;
