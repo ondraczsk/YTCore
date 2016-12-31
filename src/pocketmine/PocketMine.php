@@ -72,12 +72,12 @@ namespace pocketmine {
 	use pocketmine\utils\Utils;
 	use pocketmine\wizard\Installer;
 
-	const VERSION = "YouTubeCraftCore";
-	const API_VERSION = "2.0.0";
-	const CODENAME = "YouTuber";
-	const MINECRAFT_VERSION = "v0.15.4 alpha";
+	const VERSION = "1.6.1";
+	const API_VERSION = "2.0.0";	
+    const CODENAME = "YouTuber";
+	const MINECRAFT_VERSION = "v0.15.6 alpha";
 	const MINECRAFT_VERSION_NETWORK = "0.15.4";
-	const GENISYS_API_VERSION = '1.8.0';
+	const GENISYS_API_VERSION = '1.9.0';
 
 	/*
 	 * Startup code. Do not look at it, it may harm you.
